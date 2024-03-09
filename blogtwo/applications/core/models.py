@@ -61,5 +61,42 @@ class Posts(models.Model):
         return self.title
 
 
+class About(models.Model):
+
+    descripcion = models.CharField(max_length=350, verbose_name='Descripcion')
+    active = models.BooleanField(default=True, verbose_name='Activo')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de Creacion')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de Modificacion')
+    class Meta:
+
+        verbose_name = 'Acerca de'
+        verbose_name_plural = 'Acerca de Nosotros'
+        ordering=['-created']
+
+    def __str__(self):
+        return self.descripcion
+
+class Link(models.Model):
+
+    key = models.CharField(max_length=100, verbose_name='Key Link')
+    name = models.CharField(max_length=100, verbose_name='Red Social')
+    url = models.URLField(max_length=350,blank=True,null=True, verbose_name='Enlace' )
+    icon = models.CharField(max_length=100,blank=True,null=True,     verbose_name='Icono')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de Creacion')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de Modificacion')
+    class Meta:
+
+        verbose_name = 'Red Social'
+        verbose_name_plural = 'Redes Sociales'
+        ordering=['-name']
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
+
 
 
