@@ -25,7 +25,7 @@ class Tag(models.Model):
     name = models.CharField(max_length=200,unique=True, verbose_name='Nombre')
     active = models.BooleanField(default=True, verbose_name='Activo')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de Creacion')
-    update = models.DateTimeField(auto_now=True, verbose_name='Fecha de Modificacion')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de Modificacion')
     class Meta:
 
         verbose_name = 'Etiqueta'
